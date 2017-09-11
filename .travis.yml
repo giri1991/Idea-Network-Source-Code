@@ -1,0 +1,42 @@
+branches:
+  only:
+    - master
+
+language: android
+sudo: false
+
+jdk:
+  - oraclejdk8
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-25.0.2
+    - android-25
+    - doc-25
+    - extra-android-m2repository
+
+before_install:
+    - pip install --user codecov
+
+script:
+  - ./gradlew clean testDebugUnitTest jacocoTestReport --info
+
+after_success:
+  - ./gradlew coveralls
+  - codecov
+  - ./scripts/publish_snapshot.sh
+
+cache:
+  directories:
+    - $HOME/.gradle
+    - $HOME/.m2/repository
+
+deploy:
+  provider: script
+  script: ./gradlew bintrayUpload
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true

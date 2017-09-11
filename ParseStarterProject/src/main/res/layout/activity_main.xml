@@ -1,0 +1,67 @@
+<!--
+  ~ Copyright (c) 2015-present, Parse, LLC.
+  ~ All rights reserved.
+  ~
+  ~ This source code is licensed under the BSD-style license found in the
+  ~ LICENSE file in the root directory of this source tree. An additional grant
+  ~ of patent rights can be found in the PATENTS file in the same directory.
+  -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical"
+    android:id="@+id/relativeLayout">
+
+
+   <Button
+       android:id="@+id/navigateToHome"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="138dp"
+       android:onClick="login"
+       android:text="Login"
+       android:textAllCaps="false" />
+
+   <EditText
+       android:id="@+id/username"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:ems="10"
+       android:inputType="textPersonName"
+       android:text="Adam"
+       android:layout_above="@+id/password"
+       android:layout_centerHorizontal="true"
+       android:layout_marginBottom="22dp" />
+
+   <EditText
+       android:id="@+id/password"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:ems="10"
+       android:text="pass"
+       android:inputType="textPassword"
+       android:layout_above="@+id/navigateToHome"
+       android:layout_alignLeft="@+id/username"
+       android:layout_alignStart="@+id/username"
+       android:layout_marginBottom="51dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="14dp"
+        android:text="or Sign Up"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="12sp"
+        android:onClick="onSwitch"/>
+
+
+</RelativeLayout>
